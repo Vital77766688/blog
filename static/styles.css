@@ -97,11 +97,23 @@ nav {
 	color: #000000;
 }
 
-.nav-menu {
+.hor-acc {
 	flex: 1 1 auto;
 	display: flex;
 	justify-content: center;
+}
+
+.nav-menu-list {
+	flex: 0 0 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
 	margin: 0 10px;
+	transition: all 0.4s linear 0s;
+}
+
+.nav-menu-list.shrinked {
+	flex: 0 0 0%;
 }
 
 .nav-menu-link {
@@ -130,24 +142,35 @@ nav {
 	color: #ffffff;
 }
 
-.search {
-	display: none;
-}
-
-.search-icon {
-
-}
-
 .search-form {
+	flex: 0 0 0%;
+	overflow: hidden;
+	display: flex;
+	padding: 10px 0;
+	transition: all 0.4s linear 0s;
+}
 
+.search-form.expanded {
+	flex: 0 0 100%;
 }
 
 .search-form input {
-
+	flex: 1 1 auto;
+	height: 20px;
+	padding: 0 0 0 5px;
 }
 
 .search-form button {
+	height: 20px;
+	padding: 0 10px;
+	background-color: #ffffff;
+}
 
+.search-icon {
+	flex: 0 0 25px;
+	padding: 12px 0 0 10px;
+	margin: 0 10px;
+	cursor: pointer;
 }
 
 .login {

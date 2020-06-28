@@ -2,6 +2,23 @@ const currYear = document.querySelector('#curr-year')
 currYear.innerHTML = new Date().getFullYear()
 
 
+const navMenuList = document.querySelector('.nav-menu-list')
+const searchForm = document.querySelector('.search-form')
+const searchIcon = document.querySelector('.search-icon')
+
+searchIcon.onclick = () => {
+	navMenuList.classList.toggle('shrinked')
+	searchForm.classList.toggle('expanded')
+	if (searchIcon.querySelector('i').classList.contains('fa-search')) {
+		searchIcon.querySelector('i').classList.remove('fa-search')
+		searchIcon.querySelector('i').classList.add('fa-chevron-right')
+	} else {
+		searchIcon.querySelector('i').classList.add('fa-search')
+		searchIcon.querySelector('i').classList.remove('fa-chevron-right')
+	}
+}
+
+
 const archiveMonths = document.querySelectorAll('.archive-month')
 archiveMonths[0].style.maxHeight = archiveMonths[0].scrollHeight + 'px'
 archiveMonths.forEach(archiveMonth => {
