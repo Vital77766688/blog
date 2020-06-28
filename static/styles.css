@@ -1,0 +1,456 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 16px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+
+html, body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.lock {
+	overflow: hidden;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.container {
+	max-width: 1180px;
+	padding: 0 20px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background-color: #eeeeee;
+	overflow: hidden;
+	z-index: 2;
+}
+
+nav {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.nav-burger {
+	display: none;
+}
+
+.nav-logo {
+
+}
+
+.nav-logo a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	font-size: 28px;
+	font-weight: 700;
+	padding: 5px 0;
+	color: #000000;
+}
+
+.nav-menu {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	margin: 0 10px;
+}
+
+.nav-menu-link {
+	margin: 0 10px;
+}
+
+.nav-menu-link a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #000000;
+	white-space: nowrap;
+	padding: 13px;
+	transition: all 0.1s ease 0s;
+}
+
+.nav-menu-link a:hover {
+	transform: translateY(1px);
+}
+
+.nav-menu-link.active {
+	background-color: #777777;
+}
+
+.nav-menu-link.active a {
+	color: #ffffff;
+}
+
+.search {
+	display: none;
+}
+
+.search-icon {
+
+}
+
+.search-form {
+
+}
+
+.search-form input {
+
+}
+
+.search-form button {
+
+}
+
+.login {
+	padding: 10px 0;
+}
+
+.login-form {
+	display: flex;
+}
+
+.login-form-input {
+	height: 20px;
+	width: 120px;
+	margin: 0 10px 0 0;
+	padding: 0 0 0 5px;
+}
+
+
+.login-form-submit {
+	width: 50px;
+	background-color: #777777;
+	color: #ffffff;
+	margin: 0 10px 0 0;
+}
+
+.register-link {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	background-color: #86baa2;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+	padding: 4px 3.5px;
+	width: 50px;
+}
+
+main {
+	flex: 1 1 auto;
+	margin: 40px 0 0;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.posts {
+	flex: 1 1 75%;
+	margin: 0 15px 0 0;
+}
+
+.post-preview {
+	border: 1px solid #cccccc;
+	padding: 10px;
+	margin: 10px 0 20px;
+}
+
+.post-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	border-bottom: 2px solid #cccccc;
+	padding: 0 20px 10px;
+	margin: 0 20px 15px;
+}
+
+.post-title {
+
+}
+
+.post-title a {
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	line-height: 20px;
+	color: #000000;
+}
+
+.post-title a:hover {
+	color: #005599;
+}
+
+.post-published {
+	font-size: 10px;
+}
+
+.post-body {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.post-short-text {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.post-short-text span {
+
+}
+
+.post-short-text span a {
+	color: #3333ff;
+}
+
+.post-tags {
+	display: flex;
+	padding: 10px 0 0;
+}
+
+.post-tags li {
+	margin: 0 5px 0 0;
+	font-size: 12px;
+}
+
+.post-tags li a {
+	font-size: 12px;
+	color: #3333ff;
+}
+
+.post-tags li::after {
+	content: ',';
+}
+
+.post-tags li:first-child::after,
+.post-tags li:last-child::after {
+	content: '';
+}
+
+.side-menu {
+	flex: 1 1 25%;
+	margin: 10px auto 20px;
+	padding: 10px;
+	border: 1px solid #cccccc;
+}
+
+.side-menu h3 {
+	font-weight: 700;
+	text-align: center;
+	margin: 0 0 10px;
+}
+
+.subscribe-form {
+
+}
+
+.subscribe-form-input {
+	height: 30px;
+	width: 100%;
+	padding: 5px 10px;
+	margin: 5px 0;
+	border: 1px solid #cccccc;
+}
+
+.subscribe-form-submit {
+	height: 30px;
+	width: 100%;
+	padding: 5px 15px;
+	letter-spacing: 1px;
+	font-size: 14px;
+	cursor: pointer;
+	background-color: #eeeeee;
+
+}
+
+.archive {
+	margin: 15px 0 0;
+}
+
+.archive a:hover {
+	text-decoration: underline;
+}
+
+.archive-year {
+	text-align: center;
+} 
+
+.archive-year li {
+
+}
+
+.archive-year > li > a {
+	display: inline-block;
+	margin: 0 0 5px 0;
+	line-height: 15px;
+	letter-spacing: 1px;
+	color: #000000;
+}
+
+.archive-year > li > a span {
+	font-size: 14px;
+}
+
+.archive-month {
+	margin: 0 10px 15px;
+	max-height: 0;
+	overflow-y: hidden;
+	transition: all 0.5s ease 0s;
+}
+
+.archive-month.expanded {
+	max-height: 200px;
+}
+
+.archive-month li {
+
+}
+
+.archive-month > li > a {
+	display: inline-block;
+	line-height: 10px;
+	color: #000000;
+	font-size: 14px;
+}
+
+.archive-month > li > a span {
+	font-size: 10px;
+}
+
+.tags-cloud {
+	margin: 15px 0 0;
+	position: relative;
+}
+
+.tag-cloud {
+	position: absolute;
+	width: 100%;
+	height: 200px;
+}
+
+footer {
+	background-color: #eeeeee;
+	height: 30px;
+}
+
+footer p {
+	font-size: 12px;
+	color: #777777;
+	text-align: center;
+	padding: 8px 0;
+}
+
+
+/* Detail Post Page */
+
+.detail-post-nav {
+	text-align: right;
+	margin: 10px 20px 0 0;
+}
+
+.detail-post-nav-footer {
+	text-align: center;
+	margin: 15px 0 30px;
+}
+
+.back-link a {
+	color: #3333ff;
+	font-size: 14px;
+}
+
+.back-link a::after {
+	content: '|';
+	padding: 0 0 0 5px;
+	color: #000000;
+}
+
+.back-link a:last-child::after {
+	content: '';
+	padding: 0;
+}
+
+.detail-post {
+	
+}
+
+.detail-post-head {
+
+}
+
+.detail-post-title {
+	margin: 15px 0;
+}
+
+.detail-post-title h2 {
+	font-size: 24px;
+	font-weight: 700;
+	text-align: center;	
+}
+
+.detail-post-published {
+	padding: 0 20px 10px;
+	border-bottom: 2px solid #cccccc;
+}
+
+.detail-post-published p {
+	font-size: 12px;
+	text-align: left;
+}
+
+.detail-post-body {
+	margin: 15px 20px 30px;
+}
+
+.detail-post-body p {
+	line-height: 20px;
+	margin: 0 0 10px;
+}
