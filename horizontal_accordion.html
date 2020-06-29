@@ -13,28 +13,43 @@
 			border: 1px solid #000;
 			height: 100px;
 			display: flex;
+			position: relative;
 		}
 
 		.element {
+			/*position: relative;*/
+		}
 
+		.sub-element {
+			position: absolute;
+			top: 40px;
+			left: 40px;
+			background-color: green;
 		}
 
 		.left {
-			flex: 0 0 100%;
+			flex: 0 1 100%;
 			height: 100%;
+			width: 100%;
+			overflow: hidden;
 			background-color: red;
 			transition: all 2s ease 0s;
 		}
 
+		.left.shrinked {
+			flex: 0 1 0%;
+		}
+
 		.right {
-			flex: 0 0 0%;
+			flex: 0 1 0%;
 			height: 100%;
+			overflow: hidden;
 			background-color: blue;
 			transition: all 2s ease 0s;
 		}
 
 		.right.expanded {
-			flex: 0 0 100%;
+			flex: 0 1 100%;
 		}
 
 		.btn {
@@ -49,10 +64,17 @@
 	<div class="container">
 		<div class="horizontal-accordion">
 			<div class="element left">
-				
+				asdasdasdasdasd
+				<ul class="sub-element">
+					<li>first</li>
+					<li>second</li>
+					<li>third</li>
+					<li>fourth</li>
+					<li>fifth</li>
+				</ul>
 			</div>
 			<div class="element right">
-				
+				qweqweqweqweqeqw
 			</div>
 		</div>
 		<button class="btn">Click me</button>
@@ -63,13 +85,15 @@
 		const left = document.querySelector('.left')
 		const right = document.querySelector('.right')
 		btn.onclick = () => {
-			if (right.classList.contains('expanded')) {
-				right.classList.remove('expanded')
-				left.style.flex='0 0 100%'
-			} else {
-				right.classList.add('expanded')
-				left.style.flex='0 0 0%'
-			}
+			// if (right.classList.contains('expanded')) {
+			// 	right.classList.remove('expanded')
+			// 	left.style.flex='0 0 100%'
+			// } else {
+			// 	right.classList.add('expanded')
+			// 	left.style.flex='0 0 0%'
+			// }
+			right.classList.toggle('expanded')
+			left.classList.toggle('shrinked')
 		}
 	</script>
 </body>

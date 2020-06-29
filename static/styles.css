@@ -60,10 +60,177 @@ body.lock {
 	max-width: 1180px;
 	padding: 0 20px;
 	margin: 0 auto;
-	overflow: hidden;
 }
 
 header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	z-index: 2;
+	background-color: #eeeeee;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.nav-burger {
+	display: none;
+}
+
+.nav-logo {
+	padding: 5px 0 0;
+	/*border: 1px solid #000;*/
+}
+
+.nav-logo a {
+	font-size: 28px;
+	font-weight: 700;
+	color: #000000;
+}
+
+.hor-acc {
+	flex: 1 1 auto;
+	display: flex;
+	/*border: 1px solid #000;*/
+	position: relative;
+}
+
+.nav-menu-list {
+	flex: 0 0 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	transition: all 0.4s linear 0s;
+}
+
+.nav-menu-link {
+	margin: 0 20px 0 0;
+	padding: 12px 0;
+}
+
+.nav-menu-link.active {
+	background-color: #777777;
+}
+
+.nav-menu-link a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding: 0 10px;
+	color: #000000;
+	white-space: nowrap;
+}
+
+.nav-menu-link.active a {
+	color: #ffffff;
+}
+
+.nav-menu-list.shrinked {
+	flex: 0 0 0%;
+}
+
+.nav-menu-list-spoiler {
+	padding: 10px 0;
+}
+
+.nav-menu-list-spoiler > a {
+	font-size: 20px;
+}
+
+.nav-menu-list-spoiler:hover .nav-menu-list-spoiler-list {
+	display: block;
+}
+
+.nav-menu-list-spoiler-list {
+	display: none;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	min-width: 200px;
+	background-color: #eeeeee;
+}
+
+.nav-menu-list-spoiler-list .nav-menu-link {
+	text-align: center;
+	margin: 0;
+}
+
+.search-form {
+	flex: 0 0 0%;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 0;
+	transition: all 0.4s linear 0s;
+}
+
+.search-form input {
+	flex: 1 1 auto;
+	height: 20px;
+	margin: 0 0 0 20px;
+	padding: 0 0 0 5px;
+}
+
+.search-form button {
+	background-color: #ffffff;
+	height: 20px;
+	margin: 0 5px 0 0;
+	padding: 0 5px;
+}
+
+.search-form.expanded {
+	flex: 0 0 100%;
+}
+
+.search-icon {
+	flex: 0 0 20px;
+	padding: 12px 0 0;
+	/*border: 1px solid #000;*/
+}
+
+.login {
+	display: flex;
+	padding: 10px 0;
+	/*border: 1px solid #000;*/
+}
+
+.login-form {
+	display: flex;
+}
+
+.login-form-input {
+	height: 20px;
+	width: 120px;
+	margin: 0 10px 0 0;
+	padding: 0 0 0 5px;
+}
+
+.login-form-submit {
+	height: 20px;
+	width: 50px;
+	margin: 0 10px 0 0;
+	background-color: #777777;
+	color: #ffffff;
+}
+
+.register-link {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	background-color: #86baa2;
+	font-size: 12px;
+	color: #ffffff;
+	text-align: center;
+	padding: 4px 3.5px;
+	height: 20px;
+	width: 50px;
+}
+
+/*header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -77,6 +244,7 @@ header {
 nav {
 	display: flex;
 	justify-content: flex-start;
+	overflow: hidden;
 }
 
 .nav-burger {
@@ -99,6 +267,7 @@ nav {
 
 .hor-acc {
 	flex: 1 1 auto;
+	overflow: hidden;
 	display: flex;
 	justify-content: center;
 }
@@ -142,6 +311,27 @@ nav {
 	color: #ffffff;
 }
 
+.nav-menu-list-spoiler {
+	display: none;
+	padding: 8px;
+	position: relative;
+	border: 1px solid #000;
+}
+
+.nav-menu-list-spoiler > a {
+	font-size: 22px;
+}
+
+.nav-menu-list-spoiler-list {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	z-index: 12;
+	background-color: #aaaaaa;	
+}
+
 .search-form {
 	flex: 0 0 0%;
 	overflow: hidden;
@@ -162,12 +352,12 @@ nav {
 
 .search-form button {
 	height: 20px;
-	padding: 0 10px;
+	padding: 0 20px;
 	background-color: #ffffff;
 }
 
 .search-icon {
-	flex: 0 0 25px;
+	flex: 0 0 30px;
 	padding: 12px 0 0 10px;
 	margin: 0 10px;
 	cursor: pointer;
@@ -206,7 +396,7 @@ nav {
 	text-align: center;
 	padding: 4px 3.5px;
 	width: 50px;
-}
+}*/
 
 main {
 	flex: 1 1 auto;
@@ -301,7 +491,7 @@ main {
 
 .side-menu {
 	flex: 1 1 25%;
-	margin: 10px auto 20px;
+	margin: 10px 0 20px;
 	padding: 10px;
 	border: 1px solid #cccccc;
 }
