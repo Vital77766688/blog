@@ -2,6 +2,11 @@ const currYear = document.querySelector('#curr-year')
 currYear.innerHTML = new Date().getFullYear()
 
 
+const navSpoiler = document.querySelector('.nav-menu-list-spoiler')
+const navSpoilerList = navSpoiler.querySelector('.nav-menu-list-spoiler-list')
+if (navSpoilerList.children.length === 0) navSpoiler.style.display = 'none'
+
+
 const navMenuList = document.querySelector('.nav-menu-list')
 const searchForm = document.querySelector('.search-form')
 const searchIcon = document.querySelector('.search-icon')
@@ -99,6 +104,9 @@ anychart.onDocumentReady(() => {
 		{'x': 'Tag3', 'value': 2},
 		{'x': 'Tag4', 'value': 1},
 		{'x': 'Tag5', 'value': 1},
+		{'x': 'Tag7', 'value': 3},
+		{'x': 'Tag8', 'value': 4},
+		{'x': 'Tag9', 'value': 3},
 	]
 	const chart = anychart.tagCloud(data)
 	chart.angles([0])

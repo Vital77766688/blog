@@ -123,6 +123,11 @@ nav {
 	padding: 0 10px;
 	color: #000000;
 	white-space: nowrap;
+	transition: all 0.1s ease 0s;
+}
+
+.nav-menu-link a:hover {
+	transform: translateY(1px);
 }
 
 .nav-menu-link.active a {
