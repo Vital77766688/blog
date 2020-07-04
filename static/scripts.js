@@ -2,27 +2,104 @@ const currYear = document.querySelector('#curr-year')
 currYear.innerHTML = new Date().getFullYear()
 
 
-const navSpoiler = document.querySelector('.nav-menu-list-spoiler')
-const navSpoilerList = navSpoiler.querySelector('.nav-menu-list-spoiler-list')
-if (navSpoilerList.children.length === 0) navSpoiler.style.display = 'none'
+function is_touch_device4() {
+    
+    const prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+    
+    const mq = function (query) {
+        return window.matchMedia(query).matches;
+    }
 
+    if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+        return true;
+    }
 
-const navMenuList = document.querySelector('.nav-menu-list')
-const searchForm = document.querySelector('.search-form')
-const searchIcon = document.querySelector('.search-icon')
-
-searchIcon.onclick = () => {
-	navMenuList.classList.toggle('shrinked')
-	searchForm.classList.toggle('expanded')
-	if (searchIcon.querySelector('i').classList.contains('fa-search')) {
-		searchIcon.querySelector('i').classList.remove('fa-search')
-		searchIcon.querySelector('i').classList.add('fa-chevron-right')
-	} else {
-		searchIcon.querySelector('i').classList.add('fa-search')
-		searchIcon.querySelector('i').classList.remove('fa-chevron-right')
-	}
+    // include the 'heartz' as a way to have a non matching MQ to help terminate the join
+    // https://git.io/vznFH
+    const query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join('');
+    return mq(query);
 }
 
+
+function getChildren(from, where) {
+	for (let el in from) {
+		if (typeof from[el] === 'object') {
+			where.push(from[el])
+			if (from[el].children.length > 0) {
+				where = getChildren(from[el].children, where)
+			}
+		}
+	}
+	return where
+}
+
+
+const body = document.querySelector('body')
+
+if (is_touch_device4()) {
+	body.classList.add('touch')
+} else {
+	body.classList.add('mouse')
+}
+
+const navSpoiler = document.querySelector('.nav-menu-list-spoiler')
+const navSpoilerList = navSpoiler.querySelector('.nav-menu-list-spoiler-list')
+function checkNavSpoiler() {
+	if (navSpoilerList.children.length > 0) {
+		navSpoiler.style.display = 'block'
+	} else {
+		navSpoiler.style.display = 'none'
+	}
+}
+checkNavSpoiler()
+
+
+let navSpoilerListChildren = []
+navSpoilerListChildren = getChildren(navSpoilerList.children, navSpoilerListChildren) 
+
+const navSpoilerLink = navSpoiler.querySelector('.nav-menu-list-spoiler-link')
+navSpoilerLink.onclick = e => {
+	e.preventDefault()
+	navSpoiler.classList.toggle('active')
+}
+
+const searchForm = document.querySelector('.search-form')
+const searchFormInput = searchForm.querySelector('input')
+const searchFormIcon = searchForm.querySelector('i')
+
+let searchFormChildren = [] 
+searchFormChildren = getChildren(searchForm.children, searchFormChildren)
+
+searchFormInput.addEventListener('focus', () => {
+	searchForm.classList.add('focus')
+})
+searchFormInput.addEventListener('blur', () => {
+	searchForm.classList.remove('focus')
+})
+searchFormIcon.addEventListener('click', () => {
+	searchForm.classList.toggle('active')
+	if (searchFormIcon.classList.contains('fa-search')) {
+		searchFormIcon.classList.remove('fa-search')
+		searchFormIcon.classList.add('fa-times')
+	} else {
+		searchFormIcon.classList.add('fa-search')
+		searchFormIcon.classList.remove('fa-times')
+	}
+})
+
+window.addEventListener('click', e => {
+	if (e.target != searchFormIcon
+	 && !searchFormChildren.includes(e.target)) {
+		searchForm.classList.remove('active')
+		searchFormIcon.classList.add('fa-search')
+		searchFormIcon.classList.remove('fa-times')
+	}
+
+	if (e.target != navSpoilerLink
+	 && !navSpoilerListChildren.includes(e.target)) {
+		navSpoiler.classList.remove('active')
+	}
+})
 
 const daElements = document.querySelectorAll('[data-da]')
 const elements = []
@@ -55,7 +132,8 @@ function dynamicAdapt(elements) {
 				index = element.new_index
 			}
 			element.where.insertBefore(element.element, element.where.children[index])
-			swapElementPosition(element)			
+			swapElementPosition(element)	
+			checkNavSpoiler()		
 		}
 		const matchMedia = window.matchMedia(`(max-width: ${element.breakpoint}px)`)
 		matchMedia.addListener(listener)

@@ -11,8 +11,9 @@
 	<div class="wrapper">
 		<header>
 			<div class="container">
+				<div class="burger-menu active"></div>
 				<nav>
-					<div class="nav-burger">
+					<div class="nav-burger active">
 						<span></span>
 						<span></span>
 						<span></span>
@@ -20,33 +21,36 @@
 					<div class="nav-logo">
 						<a href="index.html">myBlog</a>
 					</div>
-					<div class="hor-acc">
-						<ul class="nav-menu-list">
-							<li class="nav-menu-link active"><a href="#">Home</a></li>
-							<li class="nav-menu-link"><a href="#">About</a></li>
-							<li class="nav-menu-link"><a href="#">Some else link</a></li>
-							<li class="nav-menu-link"><a href="#">Contacts</a></li>
-							<li class="nav-menu-list-spoiler">
-								<a href="#" class="nav-menu-list-spoiler-link">...</a>
-								<ul class="nav-menu-list-spoiler-list"></ul>
-							</li>
-						</ul>
-						<form class="search-form">
+					<ul class="nav-menu-list">
+						<li class="nav-menu-link active" data-da="nav-menu-list-spoiler-list,first,460"><a href="#">Home</a></li>
+						<li class="nav-menu-link" data-da="nav-menu-list-spoiler-list,first,460"><a href="#">About</a></li>
+						<li class="nav-menu-link" data-da="nav-menu-list-spoiler-list,first,552"><a href="#">Some else link</a></li>
+						<li class="nav-menu-link" data-da="nav-menu-list-spoiler-list,first,645"><a href="#">Contacts</a></li>
+						<li class="nav-menu-list-spoiler">
+							<a href="javascript:void(0)" class="nav-menu-list-spoiler-link">...</a>
+							<ul class="nav-menu-list-spoiler-list">
+<!-- 								<li class="nav-menu-link"><a href="#">Uhh Wws1</a></li>
+								<li class="nav-menu-link"><a href="#">Uhh Wws2</a></li>
+								<li class="nav-menu-link"><a href="#">Uhh Wws3</a></li>
+								<li class="nav-menu-link"><a href="#">Uhh Wws4</a></li> -->
+							</ul>
+						</li>
+					</ul>
+					<div class="search-form">
+						<i class="fa fa-search"></i>
+						<form>
 							<input type="text" placeholder="Text to Search...">
 							<button type="submit"><i class="fa fa-search"></i></button>
 						</form>
 					</div>
-					<div class="search-icon">
-						<i class="fa fa-search"></i>
-					</div>
-					<div class="login">
-						<form class="login-form">
-							<input type="text" class="login-form-input" placeholder="Email">
-							<input type="password" class="login-form-input" placeholder="Password">
-							<button type="submit" class="login-form-submit">Sign In</button>
-							<a href="#" class="register-link">Sign Up</a>
-						</form>
-					</div>
+					<ul class="login">
+						<li class="login-link signin-link">
+							<a href="#"><i class="fa fa-sign-in"></i><span>Sign In</span></a>
+						</li>
+						<li class="login-link signup-link">
+							<a href="#"><i class="fa fa-user-plus"></i><span>Sign Up</span></a>
+						</li>
+					</ul>
 				</nav>
 			</div>
 		</header>
@@ -223,7 +227,7 @@
 						<h3>Archive</h3>
 						<ul class="archive-year">
 							<li>
-								<a href="#">2020 <span>(10)</span></a>
+								<a href="javascript:void(0)">2020 <span>(10)</span></a>
 								<ul class="archive-month expanded">
 									<li>
 										<a href="#">June <span>(10)</span></a>
@@ -246,7 +250,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="#">2019 <span>(0)</span></a>
+								<a href="javascript:void(0)">2019 <span>(0)</span></a>
 								<ul class="archive-month">
 									<li>
 										<a href="#">December <span>(0)</span></a>

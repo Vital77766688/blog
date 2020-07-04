@@ -2,99 +2,117 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Document</title>
 	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+
 		.container {
-			width: 992px;
+			max-width: 992px;
 			margin: 0 auto;
-		}
-
-		.horizontal-accordion {
+			overflow: hidden;
 			border: 1px solid #000;
-			height: 100px;
-			display: flex;
-			position: relative;
 		}
 
-		.element {
-			/*position: relative;*/
-		}
-
-		.sub-element {
-			position: absolute;
-			top: 40px;
-			left: 40px;
-			background-color: green;
-		}
-
-		.left {
-			flex: 0 1 100%;
-			height: 100%;
+		header {
 			width: 100%;
-			overflow: hidden;
-			background-color: red;
-			transition: all 2s ease 0s;
-		}
-
-		.left.shrinked {
-			flex: 0 1 0%;
-		}
-
-		.right {
-			flex: 0 1 0%;
 			height: 100%;
+			background-color: #eeeeee;
+		}
+
+		nav {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.block {
+			white-space: nowrap;
+			border: 1px solid #000;
+		}
+
+		.block1 {
+			margin: 0 15px 0 0;
+		}
+
+		.block2 {
+			flex: 1 1 auto;
+			display: flex;
+			justify-content: center;
+			border: none;
+		}
+
+		.sub-block {
+			white-space: nowrap;
 			overflow: hidden;
-			background-color: blue;
-			transition: all 2s ease 0s;
+			/*border: 1px solid #000;*/
+			transition: all 0.4s ease 0s;
 		}
 
-		.right.expanded {
-			flex: 0 1 100%;
+		.sub-block1 {
+			width: 0;
 		}
 
-		.btn {
-			display: block;
-			width: 12%;
-			margin: 30px auto;
+		.sub-block1.expanded {
+			width: 100%;
 		}
 
+		.sub-block2 {
+			width: 0;
+		}
+
+		.block3 {
+			margin: 0 15px 0 0;
+			padding: 0 5px;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="horizontal-accordion">
-			<div class="element left">
-				asdasdasdasdasd
-				<ul class="sub-element">
-					<li>first</li>
-					<li>second</li>
-					<li>third</li>
-					<li>fourth</li>
-					<li>fifth</li>
-				</ul>
-			</div>
-			<div class="element right">
-				qweqweqweqweqeqw
-			</div>
+	<header>
+		<div class="container">
+			<nav>
+				<div class="block block1">
+					<p>Brand</p>
+				</div>
+				<div class="block block2">
+					<div class="sub-block sub-block1 expanded">
+						<p>Sub Block1 Text</p>
+					</div>
+					<div class="sub-block sub-block2">
+						<p>Sub Block2 Text</p>
+					</div>
+				</div>
+				<div class="block block3">
+					<p>I</p>
+				</div>
+				<div class="block block4">
+					<p>Text Here</p>
+				</div>
+			</nav>
 		</div>
-		<button class="btn">Click me</button>
-	</div>
+	</header>
 
 	<script>
-		const btn = document.querySelector('.btn')
-		const left = document.querySelector('.left')
-		const right = document.querySelector('.right')
-		btn.onclick = () => {
-			// if (right.classList.contains('expanded')) {
-			// 	right.classList.remove('expanded')
-			// 	left.style.flex='0 0 100%'
-			// } else {
-			// 	right.classList.add('expanded')
-			// 	left.style.flex='0 0 0%'
-			// }
-			right.classList.toggle('expanded')
-			left.classList.toggle('shrinked')
-		}
+		const searchIcon = document.querySelector('.block3')
+		const search = document.querySelector('.sub-block2')
+		const navMenu = document.querySelector('.sub-block1')
+		const accWidth = document.querySelector('.block2').offsetWidth
+
+		navMenu.style.width = accWidth + 'px' // navMenu.scrollWidth + 'px'
+		searchIcon.addEventListener('click', () => {
+			console.log('clicked')
+			navMenu.classList.remove('expanded')
+			if (!search.style.width) {
+				search.style.width = accWidth + 'px' // search.scrollWidth + 'px'
+				navMenu.style.width = null
+			} else {
+				search.style.width = null
+				navMenu.style.width = accWidth + 'px' // navMenu.scrollWidth + 'px'
+			}
+		})
 	</script>
 </body>
 </html>
